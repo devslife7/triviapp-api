@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+UserGame.destroy_all
+GameQuestion.destroy_all
+User.destroy_all
+Game.destroy_all
+Question.destroy_all
+
+User.create(username: "Andy", password: "password")
+
+def questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            Question.create(question: question["question"], difficulty: question["difficulty"], category: question["category"], correct: question["correct_answer"])
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+questions
+
+puts "HOLY SHIT IT WORKED!"
+
