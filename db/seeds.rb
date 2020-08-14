@@ -22,7 +22,15 @@ def questions
 
     if !json.nil?
         json["results"].map do |question|
-            Question.create(question: question["question"], difficulty: question["difficulty"], category: question["category"], correct: question["correct_answer"])
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
         end
     else 
         puts "can't seed, bro"
