@@ -1,7 +1,6 @@
 class GamesController < ApplicationController
 
 def create
-    game=
 
 end
 
