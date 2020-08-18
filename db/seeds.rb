@@ -12,7 +12,8 @@ User.destroy_all
 Game.destroy_all
 Question.destroy_all
 
-User.create(username: "Andy", password: "password")
+User.create(name: 'Marcos', username: "marcos123", password: "password")
+User.create(name: 'Andy', username: "andy123", password: "password")
 
 def questions
     response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
