@@ -15,9 +15,6 @@ Question.destroy_all
 User.create(name: 'Marcos', username: "marcos123", password: "password")
 User.create(name: 'Andy', username: "andy123", password: "password")
 
-game = Game.create(name: "whatever" active: :true)
-game.active = true
-
 def questions
     response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
     json = JSON.parse response
