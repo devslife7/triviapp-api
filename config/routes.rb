@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friendships
   resources :game_questions
   resources :user_games
   resources :users, only: [:create]
