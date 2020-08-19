@@ -39,7 +39,155 @@ def questions
     end
 end
 
+def science_questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=30&category=17&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+def sports_questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=40&category=21&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+def mythology_questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=12&category=20&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+def history_questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=40&category=23&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+def film_questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=30&category=11&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+def music_questions
+    response = RestClient.get 'https://opentdb.com/api.php?amount=30&category=12&difficulty=easy&type=multiple'
+    json = JSON.parse response
+
+
+
+    if !json.nil?
+        json["results"].map do |question|
+            
+            Question.create(question: question["question"], 
+                difficulty: question["difficulty"], 
+                category: question["category"], 
+                correct: question["correct_answer"],
+                incorrect1: question["incorrect_answers"][0],
+                incorrect2: question["incorrect_answers"][1],
+                incorrect3: question["incorrect_answers"][2]
+            )
+        end
+    else 
+        puts "can't seed, bro"
+    end
+end
+
+
+
+
 questions
+science_questions
+sports_questions
+history_questions
+mythology_questions
+film_questions
+music_questions
+
 
 puts "HOLY SHIT IT WORKED!"
 
