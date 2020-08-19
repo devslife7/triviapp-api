@@ -1,4 +1,5 @@
 class UserGamesController < ApplicationController
+    skip_before_action :authorized, only: [:create, :show, :update]
 
     def create 
         game = Game.find_by(name: params[:name])

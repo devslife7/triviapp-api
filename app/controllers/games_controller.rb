@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :show]
+    skip_before_action :authorized, only: [:create, :show, :update]
 
 def create
     game = Game.new(game_params)
@@ -26,10 +26,19 @@ def show
     end
 end
 
+def update
+    game = Game.find(params[:id])
+    if game.update(game_params)
+        render :json => {game: GameSerializer.new(game)}
+    else
+        render :json => { message: "patch didn't work"}
+    end
+end
+
 private
 
 def game_params
-    params.require(:game).permit(:name, :active)
+    params.require(:game).permit(:name, :active, :waiting)
 end
 
 end
