@@ -8,6 +8,7 @@
 
 UserGame.destroy_all
 GameQuestion.destroy_all
+Friendship.destroy_all
 User.destroy_all
 Game.destroy_all
 Question.destroy_all

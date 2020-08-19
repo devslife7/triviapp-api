@@ -2,16 +2,20 @@ class FriendshipsController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def create
-    user = User.find_by( id: friendship_params[:user_id])
-    friend = User.find_by( id: friendship_params[:friend_id] )
+    user = User.find_by(id: friendship_params[:user_id])
+    friend = User.find_by(id: friendship_params[:friend_id])
 
-    friendship = user.friendships.build(:friend_id => friendship_params[:friend_id])
-    friendship2 = friend.friendships.build(:friend_id => user.id)
+    if user.friends.include?(friend)
+      render json: { error: 'friendship already exists in the database'}, status: :not_acceptable
+    else 
+      friendship = user.friendships.build(friend_id: friend.id)
+      friendship2 = friend.friendships.build(friend_id: user.id)
 
-    if friendship.save && friendship2.save
-      render json: { message: 'friend added' }, status: :created
-    else
-      render json: { error: 'didnt accept friend request'}, status: :not_acceptable
+      if friendship.save && friendship2.save
+        render json: { message: 'friendship was successfully created' }, status: :created
+      else
+        render json: { error: 'friendship could not be saved'}, status: :not_acceptable
+      end
     end
   end
 
