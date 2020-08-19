@@ -19,7 +19,12 @@ User.create(name: 'Danny', username: "danny123", password: "password")
 User.create(name: 'Dave', username: "dave123", password: "password")
 User.create(name: 'Luis', username: "luis123", password: "password")
 User.create(name: 'Mike', username: "mike123", password: "password")
-User.create(name: 'Steve', username: "steve123", password: "password")
+User.create(name: 'Princeton', username: "princeton123", password: "password")
+User.create(name: 'Shawn', username: "shawn123", password: "password")
+User.create(name: 'Vidhi', username: "vidhi123", password: "password")
+User.create(name: 'Michael', username: "michael123", password: "password")
+User.create(name: 'Ian', username: "ian123", password: "password")
+User.create(name: 'Tien', username: "tien123", password: "password")
 
 def questions
     response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
