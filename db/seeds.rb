@@ -15,6 +15,11 @@ Question.destroy_all
 
 User.create(name: 'Marcos', username: "marcos123", password: "password")
 User.create(name: 'Andy', username: "andy123", password: "password")
+User.create(name: 'Danny', username: "danny123", password: "password")
+User.create(name: 'Dave', username: "dave123", password: "password")
+User.create(name: 'Luis', username: "luis123", password: "password")
+User.create(name: 'Mike', username: "mike123", password: "password")
+User.create(name: 'Steve', username: "steve123", password: "password")
 
 def questions
     response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
