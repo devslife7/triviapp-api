@@ -1,11 +1,19 @@
 class GamesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :show, :update]
+    skip_before_action :authorized, only: [:create, :show, :update, :index]
+
+
+def index
+    games = Game.where("waiting = true")
+
+    render json: { games: games }
+end
 
 def create
     game = Game.new(game_params)
+
+    game.questions << Question.all.sample(10)
     
     user= User.find_by(username: params[:game][:username])
-    
     
     if user
         game.save
