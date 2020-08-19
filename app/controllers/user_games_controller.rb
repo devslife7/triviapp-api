@@ -15,7 +15,12 @@ class UserGamesController < ApplicationController
 
     def update
         usergame = UserGame.find(params[:id])
-        usergame.update(usergame_params)
+        if usergame.update(usergame_params)
+            render json: { usergame: usergame}
+        else 
+            render json: { message: "Can't update that score!"}
+        end
+        
     end
 
     private
