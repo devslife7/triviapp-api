@@ -11,7 +11,7 @@ end
 def create
     game = Game.new(game_params)
 
-    game.questions << Question.all.sample(5)
+    game.questions << Question.all.sample(10)
     
     user= User.find_by(username: params[:game][:username])
     
