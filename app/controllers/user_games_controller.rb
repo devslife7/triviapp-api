@@ -9,7 +9,7 @@ class UserGamesController < ApplicationController
         if usergame
             render json: { usergame: usergame }
         else 
-            render json: { message: "that didn't work" }
+            render json: { message: "didn't work" }
         end
     end
 
