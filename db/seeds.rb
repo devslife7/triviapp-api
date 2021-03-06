@@ -13,10 +13,6 @@ User.destroy_all
 Game.destroy_all
 Question.destroy_all
 
-<<<<<<< HEAD
-User.create(username: "Andy", password: "password")
-User.create(username: "marcos123", password: "password")
-=======
 User.create(name: 'Marcos', username: "marcos123", password: "password")
 User.create(name: 'Andy', username: "andy123", password: "password")
 User.create(name: 'Danny', username: "danny123", password: "password")
@@ -54,7 +50,6 @@ User.create(name: 'Ian', username: "ian123", password: "password")
 User.create(name: 'Tien', username: "tien123", password: "password")
 User.create(name: 'Jr', username: "Sr123", password: "password")
 User.create(name: 'Matteo', username: "matteo123", password: "password")
->>>>>>> master
 
 def questions
     response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
