@@ -29,5 +29,4 @@ class UserGamesController < ApplicationController
         params.require(:usergame).permit(:score)
     end
 
-
 end
