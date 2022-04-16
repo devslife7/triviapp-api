@@ -52,10 +52,14 @@ User.create(name: 'Jr', username: "Sr123", password: "password")
 User.create(name: 'Matteo', username: "matteo123", password: "password")
 
 def questions
-    response = RestClient.get 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
+    url = 'https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple'
+    
+    response = RestClient::Request.execute(
+        :url => url,
+        :method => :get,
+        :verify_ssl => false
+    )
     json = JSON.parse response
-
-
 
     if !json.nil?
         json["results"].map do |question|
@@ -216,12 +220,12 @@ end
 
 
 questions
-science_questions
-sports_questions
-history_questions
-mythology_questions
-film_questions
-music_questions
+# science_questions
+# sports_questions
+# history_questions
+# mythology_questions
+# film_questions
+# music_qestions
 
 
 puts "HOLY SHIT IT WORKED!"
